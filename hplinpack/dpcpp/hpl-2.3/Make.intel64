@@ -113,7 +113,7 @@ export  ARCH = intel64
 #
 # Set TOPdir to the location of where this is being built
 TOPdir       = $(CURDIR)
-INCdir       = $(TOPdir)/include
+INCdir       = $(TOPdir)/include  -I/opt/intel/oneapi/mpi/2021.10.0/include 
 BINdir        =$(TOPdir)/bin/$(ARCH)
 LIBdir       = $(TOPdir)/lib/$(ARCH)
 #
@@ -129,7 +129,7 @@ HPLlib       = $(LIBdir)/libhpl.a
 #
 OneAPIdir    = $(ONEAPI_ROOT)
 MPdir        = $(OneAPIdir)/mpi/latest/
-MPinc        = -I$(MPdir)/include/ -I/opt/intel/oneapi/mpi/2021.10.0/include/
+MPinc        = -I$(MPdir)/include/ -I/opt/intel/oneapi/mpi/2021.10.0/include
 MPlib        = -lmpi #$(MPdir)/lib/release/libmpi.so
 #
 # ----------------------------------------------------------------------
@@ -140,7 +140,7 @@ MPlib        = -lmpi #$(MPdir)/lib/release/libmpi.so
 # used. The variable LAdir is only used for defining LAinc and LAlib.
 #
 LAdir        = $(OneAPIdir)/mkl/latest/lib/intel64/
-LAinc        = -I$(OneAPIdir)/mkl/latest/include/intel64/
+LAinc        = -I$(OneAPIdir)/mkl/latest/include/intel64/ -I/opt/intel/oneapi/mpi/2021.10.0/include 
 LAlib 	     = -L$(TOPdir)/src/dpcpp/ -ldgemm  -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lpthread -liomp5 -lm -I$(TOPdir)/src/dpcpp/
 #
 # ----------------------------------------------------------------------
